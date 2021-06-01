@@ -1,0 +1,38 @@
+import cv2
+import time
+import Trackhandak as ak
+import poseHandak as pm
+import faceMeshAK as fm
+
+wCam, hCam = 640, 480
+cap = cv2.VideoCapture(0)
+cap.set(3, wCam)
+cap.set(4, hCam)
+pTime = 0
+detector_hand = ak.handDetector()
+detector = pm.poseDetector()
+detectorFaceMesh = fm.FaceMeshDetector()
+
+while True:
+    success, img = cap.read()
+    img = detector_hand.findHands(img)
+    lmList = detector_hand.findPosition(img)
+
+    img, faces = detectorFaceMesh.findFaceMesh(img, True)
+
+
+
+    img = detector.findPose(img)
+    lmList = detector.findPosition(img)
+    ctime = time.time()
+    fps = 1 / (ctime - pTime)
+    pTime = ctime
+    cv2.putText(img, f'FPS:{int(fps)}', (400, 70), cv2.FONT_HERSHEY_PLAIN, 3, (255, 0, 0), 3)
+
+
+    cv2.imshow("Image", img)
+
+    k = cv2.waitKey(1)
+    if k == ord('q'):
+        break
+
