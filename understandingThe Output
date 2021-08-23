@@ -1,3 +1,6 @@
 # Human_body_position
 This program is a handy tool which could be used while solving various engineering problems with human intervention. The program is coded in order to plot and identify various points in the human body, these points can be accessed and used based on the scenario. The program is efficient enough to identify 468 points on your face, 21 on your palm and 33 points through the morphology of your body thereby detecting your position.
  
+The program outputs two kinds of data. 
+Firstly, the live stream from the camera with the points marked(if a prerecorded video needs to be used instead of live stream, set the video capture value to the absolute path of the file instead of 0). The live stream window can be closed by pressing the key 'q'. 
+Secondly, the program also has an output channel printing the label and the location of the data points. In case any object is not found the program will return a null nested list.
