@@ -1,0 +1,3 @@
+# Human_body_position
+This program is a handy tool which could be used while solving various engineering problems with human intervention. The program is coded in order to plot and identify various points in the human body, these points can be accessed and used based on the scenario. The program is efficient enough to identify 468 points on your face, 21 on your palm and 33 points through the morphology of your body thereby detecting your position.
+ 
